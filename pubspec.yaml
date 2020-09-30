@@ -20,7 +20,7 @@ dependencies:
   flutter:
     sdk: flutter
   path_provider: ^1.6.11
-  sqflite: ^1.3.1
+  sqflite: ^1.1.3
   
   font_awesome_flutter: ^8.8.1
 
@@ -29,6 +29,7 @@ dependencies:
   syncfusion_flutter_charts: ^18.1.54
   syncfusion_flutter_gauges: ^18.1.55 
   syncfusion_flutter_sliders: ^18.2.45-beta 
+  syncfusion_flutter_datepicker: 18.2.57-beta
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.

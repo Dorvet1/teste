@@ -1,13 +1,13 @@
-import 'package:appengenharia/bancoDeDados_2.dart';
+import 'package:appengenharia/models/bancoDeDados_2.dart';
 import 'package:charts_flutter/flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 import 'package:syncfusion_flutter_gauges/gauges.dart';
-import 'bancoDeDados.dart';
+import '../models/bancoDeDados.dart';
 import 'package:syncfusion_flutter_sliders/sliders.dart';
 
-import 'bancoDeDados_2.dart';
+import '../models/bancoDeDados_2.dart';
 
 void main() => runApp(MyApp());
 
@@ -27,42 +27,27 @@ class MyApp extends StatelessWidget {
 }
 
 class _LoginPage extends StatefulWidget {
+  DataBaseHelpers db = DataBaseHelpers();
+  void initState() {
+    DataBaseHelpers db = new DataBaseHelpers();
+    BancoDeDados bd = BancoDeDados(1, "ve", "10");
+    bd.toMap();
+    
+    db.inserirDados(bd);
+    print(db);
+  }
+
   @override
   _LoginPageState createState() => _LoginPageState();
 }
 
 class _LoginPageState extends State<_LoginPage> {
-  DataBaseHelper db = DataBaseHelper();
-  List<BancoDeDados> bd = List<BancoDeDados>();
-  void initState() {
-    super.initState();
-   // BancoDeDados bd1 = BancoDeDados(1, " velocidade", 10);
-    //BancoDeDados bd2 = BancoDeDados(2, " velocidade ", 20);
-    //db.insertBd(bd1);
-   // db.insertBd(bd2);//
-    db.getDados().then((lista) {
-      setState(() {
-        bd = lista;
-      });
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: ListView.builder(
-      padding: EdgeInsets.all(10),
-      itemCount: bd.length,
-      itemBuilder: (context, index) {
-        _listaExemplo(context, index);
-      },
-    ));
-  }
-
-  _listaExemplo(BuildContext context, int index) {
-    return Container(
-        child: Column(
-      children: <Widget>[Text(bd[index].nome)],
-    ));
+        body: Container(
+            child: Column(
+      children: <Widget>[],
+    )));
   }
 }
