@@ -4,10 +4,10 @@ import 'package:flutter/material.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 import 'package:syncfusion_flutter_gauges/gauges.dart';
-import '../models/bancoDeDados.dart';
+import 'models/bancoDeDados_2.dart';g
 import 'package:syncfusion_flutter_sliders/sliders.dart';
 
-import '../models/bancoDeDados_2.dart';
+import 'models/bancoDeDados.dart';
 
 void main() => runApp(MyApp());
 
@@ -32,7 +32,7 @@ class _LoginPage extends StatefulWidget {
     DataBaseHelpers db = new DataBaseHelpers();
     BancoDeDados bd = BancoDeDados(1, "ve", "10");
     bd.toMap();
-    
+
     db.inserirDados(bd);
     print(db);
   }
